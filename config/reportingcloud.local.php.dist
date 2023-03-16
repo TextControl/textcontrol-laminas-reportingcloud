@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * ReportingCloud Laminas Module
+ *
+ * Laminas Module for ReportingCloud Web API. Authored and supported by Text Control GmbH.
+ *
+ * @link      https://www.reporting.cloud to learn more about ReportingCloud
+ * @link      https://git.io/JexF4 for the canonical source repository
+ * @license   https://git.io/JexFB
+ * @copyright © 2022 Text Control GmbH
+ */
+
+// Copy this file to '/config/autoload/reportingcloud.local.php' in your Laminas
+// application; then add the ReportingCloud credentials you got at https://portal.reporting.cloud
+
+return [
+    'reportingcloud' => [
+        'credentials' => [
+            'api_key' => ''
+        ],
+    ],
+];
