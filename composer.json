@@ -1,5 +1,5 @@
 {
-    "name": "textcontrol/textcontrol-reportingcloud-laminas-module",
+    "name": "textcontrol/textcontrol-laminas-reportingcloud",
     "description": "Laminas Module (formerly Zend Framework 3 Module) for ReportingCloud Web API. Authored and supported by Text Control GmbH.",
     "license": "BSD-3-Clause",
     "type": "library",
