@@ -15,28 +15,14 @@ declare(strict_types=1);
 namespace TextControl\Laminas\ReportingCloud\Service;
 
 use Laminas\ServiceManager\Factory\FactoryInterface;
-use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
-use Psr\Container\NotFoundExceptionInterface;
 use TextControl\ReportingCloud\Exception\InvalidArgumentException;
 use TextControl\ReportingCloud\ReportingCloud;
 
-/**
- * Class ReportingCloudFactory
- *
- * @package TextControl\ReportingCloud
- * @author  Jonathan Maron (@JonathanMaron)
- */
 class ReportingCloudFactory implements FactoryInterface
 {
     /**
-     * @param ContainerInterface $container
      * @param string             $requestedName
-     * @param array|null         $options
-     *
-     * @return ReportingCloud
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): ReportingCloud
     {
@@ -74,7 +60,7 @@ class ReportingCloudFactory implements FactoryInterface
 
         if (array_key_exists('api_key', $credentials)) {
             $apiKey = $credentials['api_key'];
-            if (is_string($apiKey) && strlen($apiKey) > 0) {
+            if (is_string($apiKey) && 0 < strlen($apiKey)) {
                 return [
                     'api_key' => $apiKey,
                 ];
@@ -84,7 +70,7 @@ class ReportingCloudFactory implements FactoryInterface
         if (array_key_exists('username', $credentials) && array_key_exists('password', $credentials)) {
             $username = $credentials['username'];
             $password = $credentials['password'];
-            if (is_string($username) && strlen($username) > 0 && is_string($password) && strlen($password) > 0) {
+            if (is_string($username) && 0 < strlen($username) && is_string($password) && 0 < strlen($password)) {
                 return [
                     'username' => $username,
                     'password' => $password,
@@ -100,18 +86,15 @@ class ReportingCloudFactory implements FactoryInterface
 
     /**
      * Return help text, used as assistance in exception message
-     *
-     * @return string
      */
     protected function getHelp(): string
     {
         $path   = '/vendor/textcontrol/textcontrol-reportingcloud-laminas-module';
-        $source = "{$path}/config/reportingcloud.local.php.dist";
+        $source = sprintf('%s/config/reportingcloud.local.php.dist', $path);
         $dest   = '/config/autoload/reportingcloud.local.php';
 
-        $ret = "Copy '{$source}' to '{$dest}' in your Laminas application, ";
-        $ret .= "then add your ReportingCloud credentials to that file.";
+        $ret = sprintf("Copy '%s' to '%s' in your Laminas application, ", $source, $dest);
 
-        return $ret;
+        return $ret . 'then add your ReportingCloud credentials to that file.';
     }
 }

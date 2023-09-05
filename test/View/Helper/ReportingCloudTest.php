@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace TextControlTest\Laminas\ReportingCloud\View\Helper;
 
 use PHPUnit\Framework\TestCase;
-use TextControl\ReportingCloud\ReportingCloud as ReportingCloudReportingCloud;
 use TextControl\Laminas\ReportingCloud\View\Helper\ReportingCloud as ReportingCloudViewHelper;
+use TextControl\ReportingCloud\ReportingCloud as ReportingCloudReportingCloud;
 
 class ReportingCloudTest extends TestCase
 {
