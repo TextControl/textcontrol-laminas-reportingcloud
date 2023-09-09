@@ -1,18 +1,11 @@
 includes:
+    - vendor/ctw/ctw-qa/config/phpstan/common.neon
     - phpstan-baseline.neon
 parameters:
-    parallel:
-        jobSize: 64
-        maximumNumberOfProcesses: 256
-        minimumNumberOfJobsPerProcess: 4
-        processTimeout: 240.0
     bootstrapFiles:
         - vendor/autoload.php
     paths:
-        - config
         - src
         - test
-    fileExtensions:
-        - php
-    level: max
-    checkMissingIterableValueType: false
+        - ecs.php
+        - rector.php

@@ -17,34 +17,15 @@ namespace TextControl\Laminas\ReportingCloud\View\Helper;
 use Laminas\View\Helper\AbstractHelper;
 use TextControl\ReportingCloud\ReportingCloud as TextControlReportingCloudReportingCloud;
 
-/**
- * Class ReportingCloud
- *
- * @package TextControl\ReportingCloud
- * @author  Jonathan Maron (@JonathanMaron)
- */
 class ReportingCloud extends AbstractHelper
 {
-    /**
-     * @var TextControlReportingCloudReportingCloud
-     */
-    protected TextControlReportingCloudReportingCloud $reportingCloud;
-
-    /**
-     * ReportingCloud constructor
-     *
-     * @param TextControlReportingCloudReportingCloud $reportingCloud
-     */
-    public function __construct(TextControlReportingCloudReportingCloud $reportingCloud)
-    {
-        $this->reportingCloud = $reportingCloud;
+    public function __construct(
+        protected TextControlReportingCloudReportingCloud $textControlReportingCloudReportingCloud
+    ) {
     }
 
-    /**
-     * @return TextControlReportingCloudReportingCloud
-     */
     public function __invoke(): TextControlReportingCloudReportingCloud
     {
-        return $this->reportingCloud;
+        return $this->textControlReportingCloudReportingCloud;
     }
 }

@@ -14,18 +14,10 @@ declare(strict_types=1);
 
 namespace TextControl\Laminas\ReportingCloud;
 
-/**
- * Class Module
- *
- * @package TextControl\ReportingCloud
- * @author  Jonathan Maron (@JonathanMaron)
- */
 class Module
 {
     /**
      * Return the Laminas module configuration array
-     *
-     * @return array
      */
     public function getConfig(): array
     {

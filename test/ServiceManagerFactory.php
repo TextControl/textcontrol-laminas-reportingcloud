@@ -9,16 +9,9 @@ use Laminas\ServiceManager\ServiceManager;
 
 class ServiceManagerFactory
 {
-    /**
-     * @param array $applicationConfig
-     *
-     * @return ServiceManager
-     * @throws \Psr\Container\ContainerExceptionInterface
-     * @throws \Psr\Container\NotFoundExceptionInterface
-     */
     public static function getServiceManager(array $applicationConfig = []): ServiceManager
     {
-        $applicationConfig = count($applicationConfig) > 0 ? $applicationConfig : static::getApplicationConfig();
+        $applicationConfig = [] !== $applicationConfig ? $applicationConfig : static::getApplicationConfig();
         $config            = self::getConfig();
 
         $serviceManagerConfigArray = [];
@@ -29,8 +22,10 @@ class ServiceManagerFactory
         $serviceManager       = new ServiceManager();
         $serviceManagerConfig = new ServiceManagerConfig($serviceManagerConfigArray);
         $serviceManagerConfig->configureServiceManager($serviceManager);
+
         $serviceManager->setService('ApplicationConfig', $applicationConfig);
         $serviceManager->setService('Config', $config);
+
         $moduleManager = $serviceManager->get('ModuleManager');
         assert($moduleManager instanceof ModuleManager);
         $moduleManager->loadModules();
@@ -44,10 +39,7 @@ class ServiceManagerFactory
     public static function getApplicationConfig(): array
     {
         return [
-            'modules'                 => [
-                'Laminas\Router',
-                'TextControl\Laminas\ReportingCloud',
-            ],
+            'modules'                 => ['Laminas\Router', 'TextControl\Laminas\ReportingCloud'],
             'module_listener_options' => [
                 'config_glob_paths' => [],
                 'module_paths'      => [],

@@ -15,27 +15,13 @@ declare(strict_types=1);
 namespace TextControl\Laminas\ReportingCloud\Mvc\Controller\Plugin;
 
 use Laminas\ServiceManager\Factory\FactoryInterface;
-use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
-use Psr\Container\NotFoundExceptionInterface;
 use TextControl\ReportingCloud\ReportingCloud as TextControlReportingCloudReportingCloud;
 
-/**
- * Class ReportingCloudFactory
- *
- * @package TextControl\ReportingCloud
- * @author  Jonathan Maron (@JonathanMaron)
- */
 class ReportingCloudFactory implements FactoryInterface
 {
     /**
-     * @param ContainerInterface $container
      * @param string             $requestedName
-     * @param array|null         $options
-     *
-     * @return ReportingCloud
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): ReportingCloud
     {
