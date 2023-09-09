@@ -1,0 +1,11 @@
+includes:
+    - vendor/ctw/ctw-qa/config/phpstan/common.neon
+    - phpstan-baseline.neon
+parameters:
+    bootstrapFiles:
+        - vendor/autoload.php
+    paths:
+        - src
+        - test
+        - ecs.php
+        - rector.php
