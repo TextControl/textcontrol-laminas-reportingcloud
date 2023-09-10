@@ -2,6 +2,14 @@
 
 # CHANGELOG
 
+## 4.0.0 - 2023-09-10
+
+* Added [Rector](https://github.com/rectorphp/rector) and [EasyCodingStandard](https://github.com/easy-coding-standard/easy-coding-standard) to improve code quality and consistency.
+* Changed namespace from `TxTextControl\ReportingCloud` to `TextControl\Laminas\ReportingCloud` to keep ReportingCloud PHP SDK 4.0 in sync with other PHP packages authored by Text Control GmbH.
+* Added support for PHP 8.2.
+* Removed support for PHP version prior to 8.1.
+* Minor refactoring for PHP 8.1 compatibility.
+
 ## 3.0.1 - 2021-06-21
 
 * Minor update in `composer.json`.
